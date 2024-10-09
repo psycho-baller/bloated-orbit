@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -239,11 +239,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		257C72E72CB305650030F05E /* ViewModels */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
+		257C72E72CB305650030F05E /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -661,6 +657,7 @@
 				};
 			};
 			buildConfigurationList = F64495DC2360D66400C9BB1F /* Build configuration list for PBXProject "Orbit" */;
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -677,7 +674,6 @@
 				F6E7ACE023F5D1EC00AB48AB /* XCRemoteSwiftPackageReference "EnvironmentOverrides" */,
 				251DB2192CB1E1AF00F25B23 /* XCRemoteSwiftPackageReference "sdk-for-apple" */,
 			);
-			preferredProjectObjectVersion = 77;
 			productRefGroup = F64495E22360D66400C9BB1F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1011,7 +1007,7 @@
 				DEVELOPMENT_TEAM = 3V2UU7RRK9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Orbit/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1038,7 +1034,7 @@
 				DEVELOPMENT_TEAM = 3V2UU7RRK9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Orbit/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
