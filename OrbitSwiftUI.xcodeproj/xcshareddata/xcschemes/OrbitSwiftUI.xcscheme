@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F64495E02360D66400C9BB1F"
                BuildableName = "CountriesSwiftUI.app"
-               BlueprintName = "CountriesSwiftUI"
-               ReferencedContainer = "container:CountriesSwiftUI.xcodeproj">
+               BlueprintName = "OrbitSwiftUI"
+               ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F64495E02360D66400C9BB1F"
             BuildableName = "CountriesSwiftUI.app"
-            BlueprintName = "CountriesSwiftUI"
-            ReferencedContainer = "container:CountriesSwiftUI.xcodeproj">
+            BlueprintName = "OrbitSwiftUI"
+            ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "F67833D12369CCBD0065272F"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
-               ReferencedContainer = "container:CountriesSwiftUI.xcodeproj">
+               ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,8 +67,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F64495E02360D66400C9BB1F"
             BuildableName = "CountriesSwiftUI.app"
-            BlueprintName = "CountriesSwiftUI"
-            ReferencedContainer = "container:CountriesSwiftUI.xcodeproj">
+            BlueprintName = "OrbitSwiftUI"
+            ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,8 +84,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F64495E02360D66400C9BB1F"
             BuildableName = "CountriesSwiftUI.app"
-            BlueprintName = "CountriesSwiftUI"
-            ReferencedContainer = "container:CountriesSwiftUI.xcodeproj">
+            BlueprintName = "OrbitSwiftUI"
+            ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

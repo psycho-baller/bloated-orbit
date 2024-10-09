@@ -131,7 +131,7 @@
 		F62822B3236478DE00823BA1 /* ModalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDetailsView.swift; sourceTree = "<group>"; };
 		F633BA5124432ACE00402237 /* db_model_v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db_model_v1.xcdatamodel; sourceTree = "<group>"; };
 		F639004C2438A851002ED15A /* CountriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListViewModel.swift; sourceTree = "<group>"; };
-		F64495E12360D66400C9BB1F /* CountriesSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountriesSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F64495E12360D66400C9BB1F /* OrbitSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrbitSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64495E42360D66400C9BB1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F64495E62360D66400C9BB1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F64495E82360D66400C9BB1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -304,7 +304,7 @@
 		F64495D82360D66400C9BB1F = {
 			isa = PBXGroup;
 			children = (
-				F64495E32360D66400C9BB1F /* CountriesSwiftUI */,
+				F64495E32360D66400C9BB1F /* OrbitSwiftUI */,
 				F67833D32369CCBD0065272F /* UnitTests */,
 				F64495E22360D66400C9BB1F /* Products */,
 			);
@@ -313,13 +313,13 @@
 		F64495E22360D66400C9BB1F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F64495E12360D66400C9BB1F /* CountriesSwiftUI.app */,
+				F64495E12360D66400C9BB1F /* OrbitSwiftUI.app */,
 				F67833D22369CCBD0065272F /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F64495E32360D66400C9BB1F /* CountriesSwiftUI */ = {
+		F64495E32360D66400C9BB1F /* OrbitSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				F67F62AE24422EE900A6ED11 /* Persistence */,
@@ -332,7 +332,7 @@
 				F64495F92360D68D00C9BB1F /* UI */,
 				F64495FA2360D69600C9BB1F /* Resources */,
 			);
-			path = CountriesSwiftUI;
+			path = OrbitSwiftUI;
 			sourceTree = "<group>";
 		};
 		F64495F82360D67A00C9BB1F /* System */ = {
@@ -523,9 +523,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F64495E02360D66400C9BB1F /* CountriesSwiftUI */ = {
+		F64495E02360D66400C9BB1F /* OrbitSwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F64495F52360D66700C9BB1F /* Build configuration list for PBXNativeTarget "CountriesSwiftUI" */;
+			buildConfigurationList = F64495F52360D66700C9BB1F /* Build configuration list for PBXNativeTarget "OrbitSwiftUI" */;
 			buildPhases = (
 				F62DF39A237AFE9400CE1234 /* Run swiftlint */,
 				F64495DD2360D66400C9BB1F /* Sources */,
@@ -536,12 +536,12 @@
 			);
 			dependencies = (
 			);
-			name = CountriesSwiftUI;
+			name = OrbitSwiftUI;
 			packageProductDependencies = (
 				F6E7ACE123F5D1EC00AB48AB /* EnvironmentOverrides */,
 			);
 			productName = CountriesSwiftUI;
-			productReference = F64495E12360D66400C9BB1F /* CountriesSwiftUI.app */;
+			productReference = F64495E12360D66400C9BB1F /* OrbitSwiftUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F67833D12369CCBD0065272F /* UnitTests */ = {
@@ -586,7 +586,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F64495DC2360D66400C9BB1F /* Build configuration list for PBXProject "CountriesSwiftUI" */;
+			buildConfigurationList = F64495DC2360D66400C9BB1F /* Build configuration list for PBXProject "OrbitSwiftUI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -607,7 +607,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F64495E02360D66400C9BB1F /* CountriesSwiftUI */,
+				F64495E02360D66400C9BB1F /* OrbitSwiftUI */,
 				F67833D12369CCBD0065272F /* UnitTests */,
 			);
 		};
@@ -756,7 +756,7 @@
 /* Begin PBXTargetDependency section */
 		F67833D82369CCBD0065272F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F64495E02360D66400C9BB1F /* CountriesSwiftUI */;
+			target = F64495E02360D66400C9BB1F /* OrbitSwiftUI */;
 			targetProxy = F67833D72369CCBD0065272F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -909,14 +909,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CountriesSwiftUI/Resources/CountriesSwiftUI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OrbitSwiftUI/Resources/CountriesSwiftUI.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"CountriesSwiftUI/Resources\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OrbitSwiftUI/Resources\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CountriesSwiftUI/Resources/Info.plist;
+				INFOPLIST_FILE = OrbitSwiftUI/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -936,14 +936,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CountriesSwiftUI/Resources/CountriesSwiftUI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OrbitSwiftUI/Resources/CountriesSwiftUI.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"CountriesSwiftUI/Resources\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OrbitSwiftUI/Resources\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CountriesSwiftUI/Resources/Info.plist;
+				INFOPLIST_FILE = OrbitSwiftUI/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -980,7 +980,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CountriesSwiftUI.app/CountriesSwiftUI";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrbitSwiftUI.app/OrbitSwiftUI";
 			};
 			name = Debug;
 		};
@@ -1004,14 +1004,14 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/System/UnitTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CountriesSwiftUI.app/CountriesSwiftUI";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrbitSwiftUI.app/OrbitSwiftUI";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F64495DC2360D66400C9BB1F /* Build configuration list for PBXProject "CountriesSwiftUI" */ = {
+		F64495DC2360D66400C9BB1F /* Build configuration list for PBXProject "OrbitSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F64495F32360D66700C9BB1F /* Debug */,
@@ -1020,7 +1020,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F64495F52360D66700C9BB1F /* Build configuration list for PBXNativeTarget "CountriesSwiftUI" */ = {
+		F64495F52360D66700C9BB1F /* Build configuration list for PBXNativeTarget "OrbitSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F64495F62360D66700C9BB1F /* Debug */,
