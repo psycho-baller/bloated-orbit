@@ -63,30 +63,33 @@ struct SignupView: View {
                 Spacer().frame(height: 16)
                 Button("Create account") {
                     Task {
-                        let newUser = await authVM.create(
-                            name: name, email: email, password: password)
-                        guard let userId = newUser?.id,
-                            let userName = newUser?.name
-                        else {
-                            print("Error: User ID is nil")
-                            return
+                        do {
+                            // Step 1: Create account using auth
+                            let newUser = try await authVM.create(
+                                name: name, email: email, password: password)
+
+                            // Step 2: Ensure the account creation was successful
+                            guard let userId = newUser?.id,
+                                let userName = newUser?.name
+                            else {
+                                print("Error: User ID or Name is nil")
+                                return
+                            }
+
+                            // Step 3: Create a corresponding user in the database
+                            let myUser = UserModel(
+                                accountId: userId,
+                                name: userName,
+                                interests: nil
+                            )
+
+                            try await retryUserCreation(userData: myUser)
+                            print("Account and user created successfully")
+                        } catch {
+                            // Handle potential failures and roll back account creation
+                            print("Error: \(error.localizedDescription)")
+                            await authVM.handleAccountCreationFailure()
                         }
-                        let myUser = UserModel(
-                            // TODO: Refactor this
-                            accountId: userId,
-                            name: userName,
-                            interests: nil
-                                //                            bio: nil,
-                                //                            location: nil,
-                                //                            friends: nil,
-                                //                            followers: nil,
-                                //                            following: nil,
-                                //                            profilePictureId: nil,
-                                //                            settings: nil
-                        )
-                        print(myUser.accountId)
-                        await userVM
-                            .createUser(userData: myUser)
                     }
                 }
                 .regularFont()
@@ -100,6 +103,26 @@ struct SignupView: View {
             }
             .padding([.leading, .trailing], 27.5)
             .navigationBarHidden(true)
+        }
+    }
+    func retryUserCreation(userData: UserModel, retries: Int = 3) async throws {
+        var attempts = 0
+        while attempts < retries {
+            do {
+                if let newUser = await userVM.createUser(userData: userData) {
+                    return  // Success, break the loop
+                } else {
+                    attempts += 1
+                    if attempts >= retries {
+                        throw NSError(
+                            domain: "User creation failed",
+                            code: 500,
+                            userInfo: nil
+                        )
+                    }
+                    print("Retry \(attempts) failed, trying again...")
+                }
+            }
         }
     }
 }
