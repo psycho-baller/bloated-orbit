@@ -8,7 +8,7 @@
 
 import XCTest
 import Combine
-@testable import OrbitSwiftUI
+@testable import Orbit
 
 final class LazyListTests: XCTestCase {
 
