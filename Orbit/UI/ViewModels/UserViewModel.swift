@@ -15,6 +15,7 @@ import SwiftUI
 class UserViewModel: NSObject, ObservableObject, LocationManagerDelegate {
 
     @Published var users: [UserModel] = []
+    @Published var currentUser: UserModel?  // The current logged-in user
     @Published var error: String?
     @Published var isLoading = false
     @Published var searchText: String = ""
@@ -35,6 +36,7 @@ class UserViewModel: NSObject, ObservableObject, LocationManagerDelegate {
 
     @MainActor
     func initialize() async {
+        self.error = nil
         print(
             "UserViewModel - initialize: Initializing user list and subscribing to real-time updates."
         )
@@ -52,7 +54,8 @@ class UserViewModel: NSObject, ObservableObject, LocationManagerDelegate {
             print(
                 "UserViewModel - createUser: User \(newUser.id) successfully created."
             )
-            await listUsers()  // Refresh the user list after creation
+            // await listUsers()  // Refresh the user list after creation
+            self.currentUser = userData  // Set the currentUser to the newly created user
             return newUser
         } catch {
             print(
@@ -74,11 +77,15 @@ class UserViewModel: NSObject, ObservableObject, LocationManagerDelegate {
                     try await userManagementService.updateUser(
                         accountId: id, updatedUser: updatedUser)
             else {
-                throw NSError(domain: "User not found", code: 404, userInfo: nil)
+                throw NSError(
+                    domain: "User not found", code: 404, userInfo: nil)
             }
             print(
-                "UserViewModel - updateUser: User \(updatedUserDocument?.id) successfully updated."
+                "UserViewModel - updateUser: User \(updatedUserDocument.id) successfully updated."
             )
+            if id == currentUser?.accountId {
+                self.currentUser = updatedUser  // Update the currentUser if it's the one being updated
+            }
             await listUsers()  // Refresh the user list after update
         } catch {
             print(
@@ -97,7 +104,9 @@ class UserViewModel: NSObject, ObservableObject, LocationManagerDelegate {
             try await userManagementService.deleteUser(id)
             print(
                 "UserViewModel - deleteUser: User \(id) successfully deleted.")
-            await listUsers()  // Refresh the user list after deletion
+            if id == currentUser?.accountId {
+                self.currentUser = nil  // Clear the currentUser if it's the one being deleted
+            }
         } catch {
             print(
                 "UserViewModel - Source: deleteUser - Error while deleting user with ID \(id): \(error.localizedDescription)"
@@ -114,11 +123,15 @@ class UserViewModel: NSObject, ObservableObject, LocationManagerDelegate {
 
     // Filter users based on selected interests and search text
     var filteredUsers: [UserModel] {
+        // filter the current user out
+        let allOtherUsers = users.filter {
+            $0.accountId != currentUser?.accountId
+        }
         // Filter by search text
         let usersFilteredBySearch =
             searchText.isEmpty
-            ? users
-            : users.filter { user in
+            ? allOtherUsers
+            : allOtherUsers.filter { user in
                 user.name.lowercased().contains(searchText.lowercased())
                     || (user.interests?.joined(separator: " ").lowercased()
                         .contains(searchText.lowercased()) ?? false)
@@ -203,6 +216,7 @@ class UserViewModel: NSObject, ObservableObject, LocationManagerDelegate {
 
             await updateUser(
                 id: currentUser.accountId, updatedUser: updatedUser)
+            self.currentUser = updatedUser  // Update currentUser's location
             print(
                 "UserViewModel - updateCurrentUserLocation: Successfully updated location for user \(currentUser.accountId)."
             )
@@ -253,6 +267,9 @@ class UserViewModel: NSObject, ObservableObject, LocationManagerDelegate {
     func handleRealtimeUserUpdate(_ updatedUser: UserModel) {
         if let index = users.firstIndex(where: { $0.id == updatedUser.id }) {
             users[index] = updatedUser
+            if updatedUser.accountId == currentUser?.accountId {
+                self.currentUser = updatedUser  // Update currentUser if it's the one being updated in real-time
+            }
             print(
                 "UserViewModel - handleRealtimeUserUpdate: Updated user \(updatedUser.accountId) in local list."
             )
