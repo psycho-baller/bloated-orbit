@@ -54,7 +54,7 @@ struct HomeView: View {
 
             Button(action: {
                 Task {
-                    await userVM.listUsers()
+                    await userVM.initialize()
                 }
             }) {
                 Text("Retry")

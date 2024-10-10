@@ -23,13 +23,14 @@ protocol AccountManagementServiceProtocol {
     func createAccount(_ email: String, _ password: String, _ name: String)
         async throws
         -> AppwriteModels.User<[String: AnyCodable]>
-    func getAccount() async throws -> User<[String: AnyCodable]>
+    func getAccount() async throws -> User<[String: AnyCodable]>?
     func createSession(_ email: String, _ password: String) async throws
         -> Session
     func createAnonymousSession() async throws -> Session
     func listSessions() async throws -> [Session]
     func deleteSessions() async throws
     func deleteSession() async throws
+    func deleteAccount(_ id: String) async throws
     func generateJWT() async throws -> Jwt
     func socialLogin(provider: String) async throws
 }
@@ -58,7 +59,7 @@ class AccountManagementService: AccountManagementServiceProtocol {
         //        return User.from(map: user.toMap())
     }
 
-    func getAccount() async throws -> User<[String: AnyCodable]> {
+    func getAccount() async throws -> User<[String: AnyCodable]>? {
         let user = try await account.get()
         return user
     }
@@ -88,6 +89,10 @@ class AccountManagementService: AccountManagementServiceProtocol {
 
     func deleteSession() async throws {
         try await account.deleteSession(sessionId: "current")
+    }
+
+    func deleteAccount(_ id: String) async throws {
+        try await account.deleteIdentity(identityId: id)
     }
 
     func generateJWT() async throws -> Jwt {
