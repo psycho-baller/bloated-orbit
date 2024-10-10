@@ -8,7 +8,7 @@
 
 import CoreData
 import Combine
-@testable import CountriesSwiftUI
+@testable import OrbitSwiftUI
 
 final class MockedPersistentStore: Mock, PersistentStore {
     struct ContextSnapshot: Equatable {

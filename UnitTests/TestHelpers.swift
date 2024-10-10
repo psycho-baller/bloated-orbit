@@ -10,7 +10,7 @@ import XCTest
 import SwiftUI
 import Combine
 import ViewInspector
-@testable import CountriesSwiftUI
+@testable import OrbitSwiftUI
 
 // MARK: - UI
 

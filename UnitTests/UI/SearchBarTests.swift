@@ -9,7 +9,7 @@
 import XCTest
 import SwiftUI
 import ViewInspector
-@testable import CountriesSwiftUI
+@testable import OrbitSwiftUI
 
 final class SearchBarTests: XCTestCase {
 

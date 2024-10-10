@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CountriesSwiftUI
+@testable import OrbitSwiftUI
 
 final class DeepLinksHandlerTests: XCTestCase {
 
