@@ -8,7 +8,7 @@
 
 import XCTest
 import Combine
-@testable import CountriesSwiftUI
+@testable import OrbitSwiftUI
 
 // MARK: - SystemEventsHandler
 

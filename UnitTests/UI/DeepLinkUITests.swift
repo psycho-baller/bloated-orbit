@@ -9,7 +9,7 @@
 import XCTest
 import ViewInspector
 import Combine
-@testable import CountriesSwiftUI
+@testable import OrbitSwiftUI
 
 final class DeepLinkUITests: XCTestCase {
     

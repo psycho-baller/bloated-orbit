@@ -123,7 +123,7 @@
 			containerPortal = F64495D92360D66400C9BB1F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F64495E02360D66400C9BB1F;
-			remoteInfo = CountriesSwiftUI;
+			remoteInfo = OrbitSwiftUI;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -620,7 +620,7 @@
 				F6E7ACE123F5D1EC00AB48AB /* EnvironmentOverrides */,
 				FD1E881D2CB75C050049AC64 /* Appwrite */,
 			);
-			productName = CountriesSwiftUI;
+			productName = OrbitSwiftUI;
 			productReference = F64495E12360D66400C9BB1F /* OrbitSwiftUI.app */;
 			productType = "com.apple.product-type.application";
 		};
