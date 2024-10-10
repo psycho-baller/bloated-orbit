@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F64495E02360D66400C9BB1F"
-               BuildableName = "OrbitSwiftUI.app"
-               BlueprintName = "OrbitSwiftUI"
-               ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
+               BuildableName = "Orbit.app"
+               BlueprintName = "Orbit"
+               ReferencedContainer = "container:Orbit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F64495E02360D66400C9BB1F"
-            BuildableName = "OrbitSwiftUI.app"
-            BlueprintName = "OrbitSwiftUI"
-            ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
+            BuildableName = "Orbit.app"
+            BlueprintName = "Orbit"
+            ReferencedContainer = "container:Orbit.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "F67833D12369CCBD0065272F"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
-               ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
+               ReferencedContainer = "container:Orbit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F64495E02360D66400C9BB1F"
-            BuildableName = "OrbitSwiftUI.app"
-            BlueprintName = "OrbitSwiftUI"
-            ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
+            BuildableName = "Orbit.app"
+            BlueprintName = "Orbit"
+            ReferencedContainer = "container:Orbit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F64495E02360D66400C9BB1F"
-            BuildableName = "OrbitSwiftUI.app"
-            BlueprintName = "OrbitSwiftUI"
-            ReferencedContainer = "container:OrbitSwiftUI.xcodeproj">
+            BuildableName = "Orbit.app"
+            BlueprintName = "Orbit"
+            ReferencedContainer = "container:Orbit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
