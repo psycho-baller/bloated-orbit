@@ -50,6 +50,7 @@ class UserManagementService: UserManagementServiceProtocol {
     // Read
     func getUser(_ accountId: String) async throws -> UserDocument? {
         print("acctID: \(accountId)")
+        // TODO: Handle this for anonymous logins
         let query = Query.equal(
             "accountId",
             value: accountId

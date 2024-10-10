@@ -14,58 +14,49 @@ import SwiftUI
 class AuthViewModel: ObservableObject {
     @Published var isLoggedIn = false {
         didSet {
-            print("isLoggedIn: \(isLoggedIn)")
-        }
-
-    }
-    @Published var error: String? {
-        didSet {
-            print("error: \(error ?? "nil")")
+            print("AuthViewModel - isLoggedIn: \(isLoggedIn)")
         }
     }
+    @Published var error: String?
     @Published var user: User<[String: AnyCodable]>?
     @Published var isLoading = true
 
     private var account: AccountManagementServiceProtocol =
         AccountManagementService()
 
-    // Initialize with DIContainer
-    //    init(_ account: AccountManagementServiceProtocol) {
-    //        self.account = account
-    //    }
-    //    static let shared = AuthViewModel()
-
     @MainActor
     func initialize() async {
-        //        #if DEBUG
-        //        do {
-        //            try await account.deleteSessions()
-        //        } catch {
-        //            self.error = error.localizedDescription
-        //        }
-        //        #endif
         await self.getAccount()
     }
 
     @MainActor
     private func getAccount() async {
         do {
-            // Await the result of the async getAccount call
-            let user = try await account.getAccount()
-            print("4")
-            DispatchQueue.main.async {
-                print("5")
-                self.user = user
-                self.isLoggedIn = true
+            // Assuming `getAccount` can return `nil`, otherwise this check is not necessary.
+            guard let user = try await account.getAccount() else {
+                throw try AppwriteError(
+                    from: "no user currently with a session" as! Decoder
+                )
             }
+
+            print(
+                "AuthViewModel - getAccount: Success, user \(user.email) logged in."
+            )
+
+            // No need to use DispatchQueue.main.async because we're already on MainActor
+            self.user = user
+            self.isLoggedIn = true
         } catch {
-            // Handle the error case
+            // Log the error and set the error property
+            print(
+                "AuthViewModel - Source: getAccount - Error: \(error.localizedDescription)"
+            )
             self.error = error.localizedDescription
             self.isLoggedIn = false
         }
-        DispatchQueue.main.async {
-            self.isLoading = false
-        }
+
+        // Update loading state on the main actor
+        self.isLoading = false
     }
 
     @MainActor
@@ -73,16 +64,16 @@ class AuthViewModel: ObservableObject {
         [String: AnyCodable]
     >? {
         do {
-            // Await the result of the async getAccount call
             let newUser = try await account.createAccount(email, password, name)
-            print("newUser: \(newUser.email) \(newUser.id)")
-            if newUser.email == email {
-                print()
-                await self.login(email: email, password: password)
-                return newUser
-            }
+            print(
+                "AuthViewModel - createAccount: Success, created account for \(newUser.email)."
+            )
+            await self.login(email: email, password: password)
+            return newUser
         } catch {
-            // Handle the error case
+            print(
+                "AuthViewModel - Source: create - Error while creating account for \(email): \(error.localizedDescription)"
+            )
             self.error = error.localizedDescription
             self.isLoggedIn = false
         }
@@ -93,9 +84,13 @@ class AuthViewModel: ObservableObject {
     func logout() async {
         do {
             try await account.deleteSession()
+            print("AuthViewModel - logout: Success, session deleted.")
             self.isLoggedIn = false
             self.error = nil
         } catch {
+            print(
+                "AuthViewModel - Source: logout - Error: \(error.localizedDescription)"
+            )
             self.error = error.localizedDescription
         }
     }
@@ -104,8 +99,14 @@ class AuthViewModel: ObservableObject {
     func loginAnonymous() async {
         do {
             try await account.createAnonymousSession()
+            print(
+                "AuthViewModel - loginAnonymous: Success, anonymous session created."
+            )
             await self.getAccount()
         } catch {
+            print(
+                "AuthViewModel - Source: loginAnonymous - Error: \(error.localizedDescription)"
+            )
             self.error = error.localizedDescription
         }
     }
@@ -113,14 +114,32 @@ class AuthViewModel: ObservableObject {
     @MainActor
     func login(email: String, password: String) async {
         do {
-            print("1")
+            print("AuthViewModel - login: Attempting login for \(email).")
             try await account.createSession(email, password)
-            print("2")
+            print(
+                "AuthViewModel - login: Success, session created for \(email).")
             await self.getAccount()
-            print("3")
         } catch {
+            print(
+                "AuthViewModel - Source: login - Error while logging in for \(email): \(error.localizedDescription)"
+            )
             self.error = error.localizedDescription
         }
     }
 
+    @MainActor
+    func handleAccountCreationFailure() async {
+        do {
+            if let user = try await account.getAccount() {
+                try await account.deleteAccount(user.id)
+                print(
+                    "AuthViewModel - handleAccountCreationFailure: Account deleted due to user creation failure in DB for user \(user.email)."
+                )
+            }
+        } catch {
+            print(
+                "AuthViewModel - Source: handleAccountCreationFailure - Error while deleting account: \(error.localizedDescription)"
+            )
+        }
+    }
 }
