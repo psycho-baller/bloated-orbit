@@ -9,7 +9,7 @@
 import XCTest
 import SwiftUI
 import Combine
-@testable import OrbitSwiftUI
+@testable import Orbit
 
 class CountriesServiceTests: XCTestCase {
 

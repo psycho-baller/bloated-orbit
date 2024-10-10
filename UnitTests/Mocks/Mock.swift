@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import OrbitSwiftUI
+@testable import Orbit
 
 protocol Mock {
     associatedtype Action: Equatable

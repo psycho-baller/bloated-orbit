@@ -1,6 +1,6 @@
 import XCTest
 import ViewInspector
-@testable import OrbitSwiftUI
+@testable import Orbit
 
 final class ContentViewTests: XCTestCase {
 

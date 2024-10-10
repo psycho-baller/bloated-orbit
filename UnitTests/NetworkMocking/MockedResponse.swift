@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import OrbitSwiftUI
+@testable import Orbit
 
 extension RequestMocking {
     struct MockedResponse {

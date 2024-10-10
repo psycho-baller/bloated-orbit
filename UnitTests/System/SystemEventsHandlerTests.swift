@@ -8,7 +8,7 @@
 
 import XCTest
 import UIKit
-@testable import OrbitSwiftUI
+@testable import Orbit
 
 final class SystemEventsHandlerTests: XCTestCase {
     
