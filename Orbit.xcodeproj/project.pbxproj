@@ -45,7 +45,6 @@
 		F6F003B6236B036800AAC7C6 /* CountriesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F003B5236B036800AAC7C6 /* CountriesServiceTests.swift */; };
 		F6F003B8236B04B400AAC7C6 /* MockedWebRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F003B7236B04B400AAC7C6 /* MockedWebRepositories.swift */; };
 		F6F606A823CF25EC00F36F5D /* SearchBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F606A723CF25EC00F36F5D /* SearchBarTests.swift */; };
-		FD11842E2CB7825D00C4A2C1 /* OrbitSwiftUI.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = FD1E88C12CB7656C0049AC64 /* OrbitSwiftUI.entitlements */; };
 		FD1E881E2CB75C050049AC64 /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = FD1E881D2CB75C050049AC64 /* Appwrite */; };
 		FD1E887C2CB761610049AC64 /* Publisher+WeakAssign.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E88212CB761600049AC64 /* Publisher+WeakAssign.swift */; };
 		FD1E887D2CB761610049AC64 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E88222CB761600049AC64 /* CancelBag.swift */; };
@@ -115,6 +114,7 @@
 		FD1E88BE2CB761610049AC64 /* PushTokenWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E88792CB761610049AC64 /* PushTokenWebRepository.swift */; };
 		FD1E88BF2CB761610049AC64 /* ImageWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E887A2CB761610049AC64 /* ImageWebRepository.swift */; };
 		FD1E88C02CB761610049AC64 /* CountriesDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1E887B2CB761610049AC64 /* CountriesDBRepository.swift */; };
+		FDED3FE92CB89E5E00531330 /* Orbit.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = FDED3FE82CB89E4100531330 /* Orbit.entitlements */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,7 +242,7 @@
 		FD1E88792CB761610049AC64 /* PushTokenWebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushTokenWebRepository.swift; sourceTree = "<group>"; };
 		FD1E887A2CB761610049AC64 /* ImageWebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWebRepository.swift; sourceTree = "<group>"; };
 		FD1E887B2CB761610049AC64 /* CountriesDBRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesDBRepository.swift; sourceTree = "<group>"; };
-		FD1E88C12CB7656C0049AC64 /* OrbitSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OrbitSwiftUI.entitlements; sourceTree = "<group>"; };
+		FDED3FE82CB89E4100531330 /* Orbit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orbit.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,8 +533,8 @@
 			children = (
 				FD1E88542CB761600049AC64 /* Localizable.strings */,
 				FD1E88562CB761600049AC64 /* LaunchScreen.storyboard */,
+				FDED3FE82CB89E4100531330 /* Orbit.entitlements */,
 				FD1E885A2CB761600049AC64 /* Assets.xcassets */,
-				FD1E88C12CB7656C0049AC64 /* OrbitSwiftUI.entitlements */,
 				FD1E885D2CB761600049AC64 /* Preview Assets.xcassets */,
 				FD1E885F2CB761600049AC64 /* fonts */,
 				FD1E88642CB761600049AC64 /* Info.plist */,
@@ -699,7 +699,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD11842E2CB7825D00C4A2C1 /* OrbitSwiftUI.entitlements in Resources */,
+				FDED3FE92CB89E5E00531330 /* Orbit.entitlements in Resources */,
 				FD1E88A92CB761610049AC64 /* Preview Assets.xcassets in Resources */,
 				FD1E88AA2CB761610049AC64 /* Poppins-Light.ttf in Resources */,
 				FD1E88AC2CB761610049AC64 /* Poppins-Bold.ttf in Resources */,
@@ -1011,7 +1011,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Orbit/Resources/OrbitSwiftUI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Orbit/Resources/Orbit.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
@@ -1040,7 +1040,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Orbit/Resources/OrbitSwiftUI.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Orbit/Resources/Orbit.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
