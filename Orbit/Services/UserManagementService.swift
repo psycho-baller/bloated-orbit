@@ -32,9 +32,7 @@ class UserManagementService: UserManagementServiceProtocol {
 
         print(appwriteService.collectionId, appwriteService.databaseId)
 
-        let document = try await appwriteService.databases.createDocument<
-            UserModel
-        >(
+        let document = try await appwriteService.databases.createDocument(
             databaseId: appwriteService.databaseId,
             collectionId: appwriteService.collectionId,
             documentId: ID.unique(),
@@ -55,9 +53,7 @@ class UserManagementService: UserManagementServiceProtocol {
             "accountId",
             value: accountId
         )  // Query by accountId
-        let response = try await appwriteService.databases.listDocuments<
-            UserModel
-        >(
+        let response = try await appwriteService.databases.listDocuments(
             databaseId: appwriteService.databaseId,
             collectionId: appwriteService.collectionId,
             queries: [query],
@@ -93,14 +89,15 @@ class UserManagementService: UserManagementServiceProtocol {
 
         // Perform the update using the documentId
         let updatedDocument = try await appwriteService.databases
-            .updateDocument<UserModel>(
+            .updateDocument(
                 databaseId: appwriteService.databaseId,
                 collectionId: appwriteService.collectionId,
                 documentId: documentId,  // Use the documentId instead of accountId
-                data: updatedUser.toJson(),
+                data: updatedUser,
                 permissions: nil,
                 nestedType: UserModel.self
             )
+
         return updatedDocument
     }
 
@@ -124,9 +121,7 @@ class UserManagementService: UserManagementServiceProtocol {
 
     // List Users
     func listUsers(queries: [String]? = nil) async throws -> [UserDocument] {
-        let documents = try await appwriteService.databases.listDocuments<
-            UserModel
-        >(
+        let documents = try await appwriteService.databases.listDocuments(
             databaseId: appwriteService.databaseId,
             collectionId: appwriteService.collectionId,
             queries: queries,
