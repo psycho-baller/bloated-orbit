@@ -23,8 +23,19 @@ struct LoginView: View {
     @EnvironmentObject var userVM: UserViewModel
 
     var body: some View {
+        if #available(iOS 16.0, *) {
+            NavigationStack {
+                loginContent  // Use the shared loginContent to avoid duplication
+            }
+        } else {
+            NavigationView {
+                loginContent  // Use the same content for both navigation methods
+            }
+        }
+    }
 
-        //        NavigationStack {
+    // The common content of the login page (used by both NavigationStack and NavigationView)
+    var loginContent: some View {
         AppwriteLogo {
             VStack {
                 // Declare a NavigationLink with a value that matches your navigationDestination
@@ -34,8 +45,7 @@ struct LoginView: View {
                 //                    }
                 // Declare a NavigationLink with a value that matches your navigationDestination
                 NavigationLink(
-                    destination: SignupView().environmentObject(authVM)
-                        .environmentObject(userVM), isActive: $isActiveSignup
+                    destination: SignupView(), isActive: $isActiveSignup
                 ) {
                     EmptyView()
                 }

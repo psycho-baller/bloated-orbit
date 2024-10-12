@@ -6,7 +6,5 @@
 	<true/>
 	<key>com.apple.security.network.client</key>
 	<true/>
-	<key>com.apple.developer.applesignin</key>
-	<string>Target &apos;Orbit&apos; (project &apos;Orbit&apos;) has process command with output &apos;/Users/jtseng/Library/Developer/Xcode/DerivedData/Orbit-fdhovybkwuqtgadvurgwpardagcw/Build/Products/Debug-iphonesimulator/Orbit.app/Info.plist&apos;</string>
 </dict>
 </plist>
