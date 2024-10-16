@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AppwriteLogo<Content: View>: View {
-    
+
     @ViewBuilder var content: Content
-    
+
     var body: some View {
         ZStack {
             VStack {
@@ -21,16 +21,16 @@ struct AppwriteLogo<Content: View>: View {
                 Spacer()
             }.ignoresSafeArea()
             content
-//            VStack (alignment: .trailing){
-//                Spacer()
-//                HStack {
-//                    Spacer()
-//                    Image("built-with-appwrite")
-//                        .resizable()
-//                        .frame(width: 132, height: 90)
-//                }
-//            }
-//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            //            VStack (alignment: .trailing){
+            //                Spacer()
+            //                HStack {
+            //                    Spacer()
+            //                    Image("built-with-appwrite")
+            //                        .resizable()
+            //                        .frame(width: 132, height: 90)
+            //                }
+            //            }
+            //            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -38,9 +38,9 @@ struct AppwriteLogo<Content: View>: View {
 
 struct AppwriteLogo_Previews: PreviewProvider {
     static var previews: some View {
-        AppwriteLogo() {
+        AppwriteLogo {
             Text("Hello Appwrite")
         }
-            .preferredColorScheme(.dark)
+        .preferredColorScheme(.dark)
     }
 }
